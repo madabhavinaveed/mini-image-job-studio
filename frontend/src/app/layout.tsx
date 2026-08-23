@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Next.js Starter",
-  description: "Next.js starter with TypeScript and Tailwind CSS.",
+  title: "Occibo Mini Image Job Studio",
+  description: "Create a children's book illustration request, queue it, and review the result.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -23,7 +23,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="flex min-h-full flex-col bg-paper bg-[radial-gradient(1000px_420px_at_8%_-10%,rgba(196,92,58,0.08),transparent_55%)] font-sans text-ink">
+        {children}
+      </body>
     </html>
   );
 }
