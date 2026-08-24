@@ -10,6 +10,16 @@ function isSpreadLayout(value: string): value is SpreadLayout {
   return (spreadLayouts as readonly string[]).includes(value);
 }
 
+export function trimCreateJobRequest(input: CreateJobRequest): CreateJobRequest {
+  return {
+    ...input,
+    bookTitle: input.bookTitle.trim(),
+    sceneText: input.sceneText.trim(),
+    artStyle: input.artStyle.trim(),
+    characterDescription: input.characterDescription?.trim() || undefined,
+  };
+}
+
 export function validateCreateJobRequest(input: CreateJobRequest): FormFieldErrors {
   const errors: FormFieldErrors = {};
   const bookTitle = input.bookTitle.trim();

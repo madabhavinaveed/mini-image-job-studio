@@ -196,3 +196,16 @@ export const mockJobsApi = {
     return job;
   },
 };
+
+export function resetMockJobsApi(): void {
+  for (const timer of timers) {
+    clearTimeout(timer);
+  }
+  timers.clear();
+  scheduledJobIds.clear();
+  memoryStore = [];
+  resumed = false;
+  if (canUseStorage()) {
+    window.localStorage.removeItem(storageKey);
+  }
+}

@@ -1,4 +1,4 @@
-import type { AgeGroup, IllustrationType, SpreadLayout } from "./types";
+import type { AgeGroup, CreateJobRequest, IllustrationType, SpreadLayout } from "./types";
 import { ageGroups, illustrationTypes, spreadLayouts } from "./types";
 
 export const illustrationTypeOptions: Record<
@@ -68,13 +68,23 @@ export const artStylePresets = [
   "colored pencil and crayon",
 ] as const;
 
-export const sampleJobRequest = {
+export const emptyJobRequest: CreateJobRequest = {
+  bookTitle: "",
+  ageGroup: "5-8",
+  sceneText: "",
+  illustrationType: "half_page",
+  spreadLayout: "half_and_half",
+  artStyle: artStylePresets[0],
+  characterDescription: "",
+};
+
+export const sampleJobRequest: CreateJobRequest = {
   bookTitle: "Biscuit's Muddy Adventure",
-  ageGroup: "5-8" as AgeGroup,
+  ageGroup: "5-8",
   sceneText: "Biscuit rolled happily in the muddy patch while Bea laughed.",
-  illustrationType: "half_page" as IllustrationType,
-  spreadLayout: "half_and_half" as SpreadLayout,
-  artStyle: "soft painterly children's book illustration",
+  illustrationType: "half_page",
+  spreadLayout: "half_and_half",
+  artStyle: artStylePresets[0],
   characterDescription:
     "Bea is a cheerful young girl with blonde hair. Biscuit is a small fluffy brown dog.",
 };
