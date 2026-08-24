@@ -1,10 +1,5 @@
 services:
-  mongo:
-    image: mongo:7
+  redis:
+    image: redis:7-alpine
     ports:
-      - "27017:27017"
-    volumes:
-      - occibo-mongo:/data/db
-
-volumes:
-  occibo-mongo:
+      - "6379:6379"

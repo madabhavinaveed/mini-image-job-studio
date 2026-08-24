@@ -12,10 +12,12 @@
     "build": "tsc --noEmit"
   },
   "dependencies": {
+    "@libsql/client": "^0.17.4",
+    "bullmq": "^6.2.0",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
-    "mongoose": "^9.9.3"
+    "ioredis": "^6.0.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",

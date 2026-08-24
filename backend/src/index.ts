@@ -1,13 +1,15 @@
 import cors from "cors";
 import express from "express";
-import mongoose from "mongoose";
 import { config } from "./config.js";
+import { connectDb } from "./db.js";
 import { generatedDir } from "./image.js";
 import { resumeInFlightJobs } from "./jobs.js";
 import { jobsRouter } from "./routes.js";
+import { startIllustrationWorker } from "./worker.js";
 
 async function start() {
-  await mongoose.connect(config.mongoUri);
+  await connectDb();
+  startIllustrationWorker();
   await resumeInFlightJobs();
 
   const app = express();
