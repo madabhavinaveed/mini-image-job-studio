@@ -1,4 +1,4 @@
-import type { CreateJobRequest } from "./types";
+import type { CreateJobRequest } from "../types.js";
 
 function openingLine(artStyle: string, ageGroup: string): string {
   const style = artStyle.trim();
@@ -9,12 +9,13 @@ function openingLine(artStyle: string, ageGroup: string): string {
   return `Create a ${style} children's book illustration for children aged ${ageGroup}.`;
 }
 
-export function buildIllustrationPrompt(input: CreateJobRequest): string {
-  const characters = input.characterDescription?.trim()
-    ? input.characterDescription.trim()
-    : "No additional character notes provided.";
+export class PromptGenerationService {
+  generate(input: CreateJobRequest): string {
+    const characters = input.characterDescription?.trim()
+      ? input.characterDescription.trim()
+      : "No additional character notes provided.";
 
-  return `${openingLine(input.artStyle, input.ageGroup)}
+    return `${openingLine(input.artStyle, input.ageGroup)}
 
 Scene:
 ${input.sceneText.trim()}
@@ -33,4 +34,7 @@ Requirements:
 - clear main action
 - no text inside the image
 - leave quiet space for future text overlay`;
+  }
 }
+
+export const promptGenerationService = new PromptGenerationService();

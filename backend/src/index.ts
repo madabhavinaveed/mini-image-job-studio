@@ -3,6 +3,7 @@ import express from "express";
 import { config } from "./config.js";
 import { connectDb } from "./db.js";
 import { generatedDir } from "./image.js";
+import { imageGenerationService } from "./imageGeneration/ImageGenerationService.js";
 import { resumeInFlightJobs } from "./jobs.js";
 import { jobsRouter } from "./routes.js";
 import { startIllustrationWorker } from "./worker.js";
@@ -29,6 +30,7 @@ async function start() {
 
   app.listen(config.port, () => {
     console.log(`Occibo API listening on ${config.publicBaseUrl}`);
+    console.log(`Image generation: ${imageGenerationService.providerName} provider`);
   });
 }
 

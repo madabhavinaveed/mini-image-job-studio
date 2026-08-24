@@ -1,7 +1,7 @@
 import { randomBytes } from "node:crypto";
 import type { Row } from "@libsql/client";
 import { db } from "./db.js";
-import { writeGeneratedImage } from "./image.js";
+import { imageGenerationService } from "./imageGeneration/ImageGenerationService.js";
 import { buildIllustrationPrompt } from "./prompt.js";
 import { enqueueIllustrationJob } from "./queue.js";
 import type { CreateJobRequest, JobDetail, JobListItem, JobStatus } from "./types.js";
@@ -133,7 +133,11 @@ async function finishJob(jobId: string): Promise<void> {
     return;
   }
 
-  const imageUrl = await writeGeneratedImage(job.job_id, job.request, job.generated_prompt);
+  const imageUrl = await imageGenerationService.generate({
+    jobId: job.job_id,
+    request: job.request,
+    prompt: job.generated_prompt,
+  });
   await db.execute({
     sql: `update jobs
           set status = 'completed',
