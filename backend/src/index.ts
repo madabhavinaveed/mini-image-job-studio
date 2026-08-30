@@ -29,7 +29,7 @@ async function start() {
   });
 
   app.listen(config.port, () => {
-    console.log(`Occibo API listening on ${config.publicBaseUrl}`);
+    console.log(`Mini Image Job Studio API listening on ${config.publicBaseUrl}`);
     console.log(`Image generation: ${imageGenerationService.providerName} provider`);
   });
 }

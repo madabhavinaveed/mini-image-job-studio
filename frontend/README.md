@@ -1,6 +1,6 @@
 # Frontend
 
-Next.js App Router UI for Occibo Mini Image Job Studio.
+Next.js App Router UI for Mini Image Job Studio.
 
 Full setup (backend, Redis, env vars) is in the [root README](../README.md).
 

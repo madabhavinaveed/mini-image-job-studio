@@ -1,4 +1,4 @@
-# Occibo Mini Image Job Studio
+# Mini Image Job Studio
 
 A small full-stack app for creating one children’s-book illustration at a time: fill a request, queue it, process it asynchronously, and review the generated image.
 

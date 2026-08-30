@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Occibo Mini Image Job Studio",
+  title: "Mini Image Job Studio",
   description: "Create a children's book illustration request, queue it, and review the result.",
 };
 

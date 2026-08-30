@@ -34,7 +34,7 @@ export function IllustrationStudio() {
         <div className="mx-auto flex max-w-[1600px] items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-clay">
-              Occibo
+              Studio
             </p>
             <h1 className="text-xl font-semibold leading-tight sm:text-[1.4rem]">
               Mini Image Job Studio
