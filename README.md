@@ -114,14 +114,19 @@ Vitest + React Testing Library live under `frontend/tests/`. Playwright covers t
 ## Project layout
 
 ```
-frontend/          Next.js App Router + Tailwind
-  src/components/  Form, job list, job detail, reusable UI
-  src/lib/         Validation, mock/HTTP API clients
-  tests/           Unit, component, and e2e tests
-backend/           Express + TypeScript
-  src/jobs.ts      Create / list / get jobs
-  src/queue.ts     BullMQ enqueue
-  src/worker.ts    Async job worker
-  src/promptGeneration/  Structured illustration prompt
-  src/imageGeneration/   Real + mock image providers
+frontend/                 Next.js App Router + Tailwind
+  src/app/                Page entry
+  src/components/jobs/    Form, list, detail
+  src/components/ui/      Reusable fields and buttons
+  src/lib/                Types, validation, API clients
+  tests/                  Unit, component, and e2e tests
+backend/                  Express + TypeScript
+  src/index.ts            Process bootstrap
+  src/app.ts              HTTP app (CORS, static files, routers)
+  src/lib/                Shared types and validation
+  src/db/                 SQLite client and schema
+  src/jobs/               Routes, service, and repository
+  src/queue/              Redis, BullMQ queue, and worker
+  src/promptGeneration/   Structured illustration prompt
+  src/imageGeneration/    Real + mock providers and page composition
 ```

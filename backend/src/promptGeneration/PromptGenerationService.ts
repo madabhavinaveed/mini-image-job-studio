@@ -1,4 +1,4 @@
-import type { CreateJobRequest } from "../types.js";
+import type { CreateJobRequest } from "../lib/types.js";
 
 function openingLine(artStyle: string, ageGroup: string): string {
   const style = artStyle.trim();

@@ -1,6 +1,6 @@
 import { Worker } from "bullmq";
-import { processIllustrationJob } from "./jobs.js";
-import { illustrationQueueName } from "./queue.js";
+import { processIllustrationJob } from "../jobs/jobs.service.js";
+import { illustrationQueueName } from "./illustrationQueue.js";
 import { createRedisConnection } from "./redis.js";
 
 export function startIllustrationWorker() {

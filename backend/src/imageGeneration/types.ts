@@ -1,4 +1,4 @@
-import type { CreateJobRequest } from "../types.js";
+import type { CreateJobRequest } from "../lib/types.js";
 
 export interface ImageGenerationInput {
   jobId: string;

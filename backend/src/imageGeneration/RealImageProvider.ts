@@ -1,5 +1,5 @@
 import { config } from "../config.js";
-import { dimensionsForType } from "../image.js";
+import { dimensionsForType } from "./storage.js";
 import type { GeneratedImage, ImageGenerationInput, ImageProvider } from "./types.js";
 
 const pollinationsBaseUrl = "https://image.pollinations.ai/prompt";

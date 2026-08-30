@@ -1,20 +1,13 @@
-import { Router, type NextFunction, type Request, type Response } from "express";
-import { createJob, getJob, listJobs } from "./jobs.js";
-import type { CreateJobRequest } from "./types.js";
-import { hasFormFieldErrors, trimCreateJobRequest, validateCreateJobRequest } from "./validation.js";
-
-function asyncHandler(
-  handler: (request: Request, response: Response) => Promise<void>,
-) {
-  return (request: Request, response: Response, next: NextFunction) => {
-    handler(request, response).catch(next);
-  };
-}
+import { Router } from "express";
+import { asyncHandler } from "../lib/http.js";
+import type { CreateJobRequest } from "../lib/types.js";
+import { hasFormFieldErrors, trimCreateJobRequest, validateCreateJobRequest } from "../lib/validation.js";
+import { createJob, getJob, listJobs } from "./jobs.service.js";
 
 export const jobsRouter = Router();
 
 jobsRouter.post(
-  "/jobs",
+  "/",
   asyncHandler(async (request, response) => {
     const payload = trimCreateJobRequest(request.body as CreateJobRequest);
     const fieldErrors = validateCreateJobRequest(payload);
@@ -32,14 +25,14 @@ jobsRouter.post(
 );
 
 jobsRouter.get(
-  "/jobs",
+  "/",
   asyncHandler(async (_request, response) => {
     response.json(await listJobs());
   }),
 );
 
 jobsRouter.get(
-  "/jobs/:jobId",
+  "/:jobId",
   asyncHandler(async (request, response) => {
     const job = await getJob(String(request.params.jobId));
     if (!job) {

@@ -1,18 +1,18 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
-import { config } from "./config.js";
-import type { IllustrationType } from "./types.js";
+import { config } from "../config.js";
+import type { IllustrationType } from "../lib/types.js";
 
 export const generatedDir = path.resolve("generated");
 
 export function dimensionsForType(type: IllustrationType): { width: number; height: number } {
   switch (type) {
     case "spot":
-    case "quarter_page":
       return { width: 800, height: 800 };
     case "vignette":
+      return { width: 1100, height: 800 };
+    case "quarter_page":
     case "half_page":
-      return { width: 1200, height: 800 };
     case "full_page":
       return { width: 900, height: 1200 };
     case "double_spread":

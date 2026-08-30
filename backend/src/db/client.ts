@@ -2,7 +2,7 @@ import { mkdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { createClient } from "@libsql/client";
-import { config } from "./config.js";
+import { config } from "../config.js";
 
 mkdirSync(path.dirname(config.sqlitePath), { recursive: true });
 
